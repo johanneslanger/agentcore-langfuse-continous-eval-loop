@@ -76,7 +76,7 @@ def run_experiment(
         prompt = item.input['question']
         
         # Invoke the agent
-        result = invoke_agent(agent_arn, prompt)
+        result = invoke_agent(agent_arn, prompt, environment="DEV")
         
         # Check for errors
         if 'error' in result:

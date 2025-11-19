@@ -151,7 +151,7 @@ def deploy_agent(model, system_prompt, force_redeploy=False, environment="DEV"):
     }
 
 
-def invoke_agent(agent_arn, prompt, session_id=None):
+def invoke_agent(agent_arn, prompt, session_id=None, environment=None):
     """
     Invokes an Amazon Bedrock AgentCore Runtime agent with the given prompt.
     
@@ -170,15 +170,16 @@ def invoke_agent(agent_arn, prompt, session_id=None):
         # Initialize the Bedrock AgentCore client
         agent_core_client = boto3.client('bedrock-agentcore', region_name=region)
         
+        if environment == "DEV":
+            trace_id = get_client().get_current_trace_id()
+            obs_id = get_client().get_current_observation_id()
 
-        trace_id = get_client().get_current_trace_id()
-        obs_id = get_client().get_current_observation_id()
-
-        # Prepare the payload
-        payload = json.dumps({"prompt": prompt, 
-        "trace_id": trace_id, 
-        "parent_obs_id": obs_id
-        }).encode()
+            payload = json.dumps({"prompt": prompt, 
+                                    "trace_id": trace_id, 
+                                    "parent_obs_id": obs_id
+                                    }).encode()
+        else:
+            payload = json.dumps({"prompt": prompt}).encode()
         
         # Generate session_id if not provided
         if session_id is None:
