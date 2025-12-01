@@ -36,7 +36,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: arn:aws:iam::028626156119:role/eval-admin
-        aws-region: us-east-1
+        aws-region: us-west-2
     
     - name: Deploy Agent TST
       run: |
