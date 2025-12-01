@@ -22,3 +22,4 @@ experimentation/hpo_config_tmp.json
 *.log
 
 setup-ssm.sh
+.bedrock_agentcore.yaml
