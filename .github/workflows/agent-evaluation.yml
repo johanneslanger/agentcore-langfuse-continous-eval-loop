@@ -15,7 +15,8 @@ on:
       - 'agents/**'
       - 'requirements.txt'
   workflow_dispatch:
-
+permissions:
+  id-token: write
 jobs:
   evaluate-agent:
     runs-on: ubuntu-latest
