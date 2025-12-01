@@ -20,3 +20,5 @@ experimentation/hpo_config_tmp.json
 
 # Log files
 *.log
+
+setup-ssm.sh
