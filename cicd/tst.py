@@ -10,8 +10,6 @@ from openai import OpenAI
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from utils.langfuse import get_langfuse_client
 from utils.agent import invoke_agent
-from utils.aws import get_ssm_parameter
-import logging
 
 # Add this at the top of your script
 #logging.basicConfig(level=logging.DEBUG)
@@ -51,7 +49,7 @@ print(f"Using agent ARN from deployment: {agent_arn}")
 print(f"Agent Name: {config.get('agent_name', 'N/A')}")
 print(f"Agent ID: {config.get('agent_id', 'N/A')}")
 
-    # Initialize Langfuse client
+# Initialize Langfuse client
 langfuse = get_langfuse_client() 
 
 # Define Bedrock model as LLMaaJ model

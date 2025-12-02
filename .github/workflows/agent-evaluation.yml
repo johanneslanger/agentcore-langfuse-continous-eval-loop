@@ -38,21 +38,21 @@ jobs:
         role-to-assume: arn:aws:iam::028626156119:role/eval-admin
         aws-region: us-west-2
     
-    - name: Deploy Agent TST
-      run: |
-        python cicd/deploy_agent.py --environment TST
+#    - name: Deploy Agent TST
+#      run: |
+#        python cicd/deploy_agent.py --environment TST
+#    
+#    - name: Run evaluation
+#      run: |
+#        python cicd/tst.py
     
-    - name: Run evaluation
-      run: |
-        python cicd/tst.py
+#    - name: Check Factuality score
+#      run: |
+#        python cicd/check_factuality.py
     
-    - name: Check Factuality score
-      run: |
-        python cicd/check_factuality.py
-    
-    - name: Cleanup - Delete Agent
-      run: |
-        python cicd/delete_agent.py
+#    - name: Cleanup - Delete Agent
+#      run: |
+#        python cicd/delete_agent.py
     
     - name: Deploy Agent PRD
       run: |

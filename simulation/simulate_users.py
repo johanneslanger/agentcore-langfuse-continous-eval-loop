@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.agent import invoke_agent
 
 # Configuration
-AGENT_ARN = "<AGENT_ARN>"  # Replace with your actual agent ARN
+AGENT_ARN = "arn:aws:bedrock-agentcore:us-west-2:028626156119:runtime/strands_claude45sonnet_prompt1_TST-3pd6xPCtD6"  # Replace with your actual agent ARN
 CONFIG_FILE = "load_config.json"
 
 
